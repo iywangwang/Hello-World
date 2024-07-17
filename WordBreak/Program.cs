@@ -30,8 +30,9 @@
                     }
                 }
 
-                string a = new string(chars);
-                string[] word = a.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);    //去除空数据
+                str = new string(chars);
+                string[] word = str.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);    //去除空数据
+                
                 Array.Reverse(word, 0, word.Length);
 
                 Console.Write("逆序之后的字符串为：");
