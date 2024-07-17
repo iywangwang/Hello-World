@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array", "Array.csproj", "{3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeanValue", "MeanValue\MeanValue.csproj", "{B1906808-D44B-44AE-8ECD-75C3547F3A76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterStr", "CounterStr\CounterStr.csproj", "{1C22749E-3EE3-45C9-A50D-139890E6F4C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B1906808-D44B-44AE-8ECD-75C3547F3A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1906808-D44B-44AE-8ECD-75C3547F3A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1906808-D44B-44AE-8ECD-75C3547F3A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C22749E-3EE3-45C9-A50D-139890E6F4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C22749E-3EE3-45C9-A50D-139890E6F4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C22749E-3EE3-45C9-A50D-139890E6F4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C22749E-3EE3-45C9-A50D-139890E6F4C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
