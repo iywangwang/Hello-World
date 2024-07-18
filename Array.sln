@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array", "Array.csproj", "{3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeanValue", "MeanValue\MeanValue.csproj", "{B1906808-D44B-44AE-8ECD-75C3547F3A76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterStr", "CounterStr\CounterStr.csproj", "{1C22749E-3EE3-45C9-A50D-139890E6F4C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CounterStr", "CounterStr\CounterStr.csproj", "{1C22749E-3EE3-45C9-A50D-139890E6F4C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordBreak", "WordBreak\WordBreak.csproj", "{A2920BE8-D230-4A3B-ADA6-A9BFC13A8785}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordBreak", "WordBreak\WordBreak.csproj", "{A2920BE8-D230-4A3B-ADA6-A9BFC13A8785}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student_Score_Class", "Student_Score_Class\Student_Score_Class.csproj", "{CB45BB2B-BABC-44A1-8EE6-9E92590C1A1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A2920BE8-D230-4A3B-ADA6-A9BFC13A8785}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2920BE8-D230-4A3B-ADA6-A9BFC13A8785}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2920BE8-D230-4A3B-ADA6-A9BFC13A8785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB45BB2B-BABC-44A1-8EE6-9E92590C1A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB45BB2B-BABC-44A1-8EE6-9E92590C1A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB45BB2B-BABC-44A1-8EE6-9E92590C1A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB45BB2B-BABC-44A1-8EE6-9E92590C1A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
