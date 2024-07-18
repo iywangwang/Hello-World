@@ -6,7 +6,7 @@
         {
             int[] array = new int[10];
             int sum = 0;
-            string s ;
+            string? s ;
             double mean = 0;
 
             for (int i = 0; i < array.Length; i++)

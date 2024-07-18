@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            string str;
+            string? str;
             char[] chars;
             while (true)
             {

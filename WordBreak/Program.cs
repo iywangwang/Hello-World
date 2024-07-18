@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             int num = 0;
-            string str;
+            string? str;
             char[] chars;
 
             while (true)
