@@ -22,11 +22,9 @@ namespace CustomerAndWaiter
         public string DishSize { get; set; }
     }
 
-    public delegate void OrderEventHandler(Customer customer, OrderEventArgs e);
-
     public class Customer   //顾客
     {
-        public event OrderEventHandler Order;
+        public event EventHandler Order;
         public double Bill { get; set; }        //账单
 
         public void PayTheBill()        //结账
@@ -70,12 +68,14 @@ namespace CustomerAndWaiter
 
     public class Waiter
     {
-        public void Action(Customer customer, OrderEventArgs e)     //处理事件
+        public void Action(object sender, EventArgs e)     //处理事件
         {
-            Console.WriteLine("I will server you the dish {0}", e.DishName);
+            Customer customer = sender as Customer;
+            OrderEventArgs orderInfo = e as OrderEventArgs;
+            Console.WriteLine("I will server you the dish {0}", orderInfo.DishName);
             double price = 77;
 
-            switch (e.DishSize)
+            switch (orderInfo.DishSize)
             {
                 case "small":
                     price *= 0.75;
