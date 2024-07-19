@@ -7,4 +7,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\CSharp_Study\Array\CustomerAndWaiter\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\CSharp_Study\Array\CustomerAndWaiter\.editorconfig" />
+  </ItemGroup>
+
 </Project>
