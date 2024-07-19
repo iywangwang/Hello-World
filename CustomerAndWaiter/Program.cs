@@ -26,20 +26,7 @@ namespace CustomerAndWaiter
 
     public class Customer   //顾客
     {
-        private OrderEventHandler orderEventHandler;
-
-        public event OrderEventHandler Order        //声明事件
-        { 
-            add 
-            { 
-                this.orderEventHandler += value; 
-            }
-
-            remove 
-            {
-                this.orderEventHandler -= value;
-            } 
-        }
+        public event OrderEventHandler Order;
         public double Bill { get; set; }        //账单
 
         public void PayTheBill()        //结账
@@ -65,11 +52,11 @@ namespace CustomerAndWaiter
                 Thread.Sleep(1000);
             }
 
-            if (this.orderEventHandler != null)
+            if (this.Order != null)
             {
                 OrderEventArgs e = new OrderEventArgs() { DishName = "剁椒鱼头", DishSize = "small"};
 
-                this.orderEventHandler.Invoke(this, e);
+                this.Order.Invoke(this, e);
             }
         }
 
