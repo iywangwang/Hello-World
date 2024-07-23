@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListBox_WPF", "..\ListBox_W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SliderAndTextbox", "..\SliderAndTextbox\SliderAndTextbox.csproj", "{0BBC654C-822E-4A35-A9EB-74886F5E9B12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCommandTest", "..\MyCommandTest\MyCommandTest.csproj", "{70285021-3BAE-4093-9823-5E88D62F2F4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TongZhiGenGai_INotifyPropertyChanged", "..\TongZhiGenGai_INotifyPropertyChanged\TongZhiGenGai_INotifyPropertyChanged.csproj", "{EF30A248-3675-43DD-BC2C-819D85D4FEF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{0BBC654C-822E-4A35-A9EB-74886F5E9B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BBC654C-822E-4A35-A9EB-74886F5E9B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BBC654C-822E-4A35-A9EB-74886F5E9B12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70285021-3BAE-4093-9823-5E88D62F2F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70285021-3BAE-4093-9823-5E88D62F2F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70285021-3BAE-4093-9823-5E88D62F2F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70285021-3BAE-4093-9823-5E88D62F2F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF30A248-3675-43DD-BC2C-819D85D4FEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF30A248-3675-43DD-BC2C-819D85D4FEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF30A248-3675-43DD-BC2C-819D85D4FEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF30A248-3675-43DD-BC2C-819D85D4FEF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
