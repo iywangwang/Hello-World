@@ -1,0 +1,24 @@
+﻿<Window x:Class="SliderAndTextbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SliderAndTextbox"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Slider x:Name="slider" Margin="5"/>
+            <TextBox Height="30" Margin="5"
+                     Text="{Binding ElementName=slider, Path=Value, Mode=OneTime}"/>
+            <TextBox Height="30" Margin="5"
+                     Text="{Binding ElementName=slider, Path=Value, Mode=OneWay}"/>
+            <TextBox Height="30" Margin="5"
+                     Text="{Binding ElementName=slider, Path=Value, Mode=OneWayToSource}"/>
+            <TextBox Height="30" Margin="5"
+                    Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay}"/>
+            <TextBox Height="30" Margin="5"
+                    Text="{Binding ElementName=slider, Path=Value, Mode=Default}"/>
+        </StackPanel>
+    </Grid>
+</Window>
