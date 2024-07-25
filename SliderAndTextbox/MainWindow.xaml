@@ -14,7 +14,7 @@
             <TextBox Height="30" Margin="5"
                      Text="{Binding ElementName=slider, Path=Value, Mode=OneWay}"/>
             <TextBox Height="30" Margin="5"
-                     Text="{Binding ElementName=slider, Path=Value, Mode=OneWayToSource}"/>
+                     Text="{Binding ElementName=slider, Path=Value, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox Height="30" Margin="5"
                     Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay}"/>
             <TextBox Height="30" Margin="5"
