@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XAML01", "XAML01.csproj", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListBox_WPF", "..\ListBox_WPF\ListBox_WPF.csproj", "{2BCB41B0-8A13-4659-8AAB-346765C3D2A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SliderAndTextbox", "..\SliderAndTextbox\SliderAndTextbox.csproj", "{0BBC654C-822E-4A35-A9EB-74886F5E9B12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SliderAndTextbox", "..\SliderAndTextbox\SliderAndTextbox.csproj", "{0BBC654C-822E-4A35-A9EB-74886F5E9B12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCommandTest", "..\MyCommandTest\MyCommandTest.csproj", "{70285021-3BAE-4093-9823-5E88D62F2F4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCommandTest", "..\MyCommandTest\MyCommandTest.csproj", "{70285021-3BAE-4093-9823-5E88D62F2F4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TongZhiGenGai_INotifyPropertyChanged", "..\TongZhiGenGai_INotifyPropertyChanged\TongZhiGenGai_INotifyPropertyChanged.csproj", "{EF30A248-3675-43DD-BC2C-819D85D4FEF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TongZhiGenGai_INotifyPropertyChanged", "..\TongZhiGenGai_INotifyPropertyChanged\TongZhiGenGai_INotifyPropertyChanged.csproj", "{EF30A248-3675-43DD-BC2C-819D85D4FEF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDIYEvevt", "..\WPFDIYEvevt\WPFDIYEvevt.csproj", "{D262C9A3-3642-4072-A16F-766D9406FD54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{EF30A248-3675-43DD-BC2C-819D85D4FEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF30A248-3675-43DD-BC2C-819D85D4FEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF30A248-3675-43DD-BC2C-819D85D4FEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D262C9A3-3642-4072-A16F-766D9406FD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D262C9A3-3642-4072-A16F-766D9406FD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D262C9A3-3642-4072-A16F-766D9406FD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D262C9A3-3642-4072-A16F-766D9406FD54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
