@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDIYEvevt", "..\WPFDIYEve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFSubjoinEvent", "..\WPFSubjoinEvent\WPFSubjoinEvent.csproj", "{4EA55C78-5CF6-4DD8-9A92-37FDEBDE0D6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseRoutedCommand", "..\UseRoutedCommand\UseRoutedCommand.csproj", "{5886E0ED-724F-4894-8C04-F52578206A72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4EA55C78-5CF6-4DD8-9A92-37FDEBDE0D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EA55C78-5CF6-4DD8-9A92-37FDEBDE0D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EA55C78-5CF6-4DD8-9A92-37FDEBDE0D6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5886E0ED-724F-4894-8C04-F52578206A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5886E0ED-724F-4894-8C04-F52578206A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5886E0ED-724F-4894-8C04-F52578206A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5886E0ED-724F-4894-8C04-F52578206A72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
