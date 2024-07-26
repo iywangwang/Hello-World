@@ -15,7 +15,7 @@ namespace WPFSubjoinEvent
 
         public static readonly RoutedEvent SalaryChangeEvent = EventManager.RegisterRoutedEvent
             ("SalaryChanged", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(Staff));
-
+        
         public static void AddSalaryChangedHandler(DependencyObject d, RoutedEventHandler h)
         {
             UIElement uIE = d as UIElement;
@@ -33,5 +33,7 @@ namespace WPFSubjoinEvent
                 uIE.RemoveHandler(Staff.SalaryChangeEvent, h);
             }
         }
-    }
+        
+        }
+        
 }

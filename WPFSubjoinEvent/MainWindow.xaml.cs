@@ -22,6 +22,7 @@ namespace WPFSubjoinEvent
 
             //为最外层的Gird实现侦听
             Staff.AddSalaryChangedHandler(this.BaseGrid, new RoutedEventHandler(this.StaffSalaryChangedHandler));
+            //this.BaseGrid.AddHandler(Staff.SalaryChangeEvent, new RoutedEventHandler(this.StaffSalaryChangedHandler));
         }
 
         //使用按钮触发事件，并进行路由传递
