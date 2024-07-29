@@ -37,7 +37,7 @@ namespace UseRoutedCommand
             this.clearCmd.InputGestures.Add(new KeyGesture(Key.C, ModifierKeys.Alt));
             
             //为命令源指定命令和目标
-            this.Button1.Command = this.clearCmd;
+            //this.Button1.Command = this.clearCmd;
             this.Button1.CommandTarget = this.TextBox1;
 
             //创建命令

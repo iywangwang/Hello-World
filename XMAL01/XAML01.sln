@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCommandTest", "..\MyComma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TongZhiGenGai_INotifyPropertyChanged", "..\TongZhiGenGai_INotifyPropertyChanged\TongZhiGenGai_INotifyPropertyChanged.csproj", "{EF30A248-3675-43DD-BC2C-819D85D4FEF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDIYEvevt", "..\WPFDIYEvevt\WPFDIYEvevt.csproj", "{D262C9A3-3642-4072-A16F-766D9406FD54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFDIYEvevt", "..\WPFDIYEvevt\WPFDIYEvevt.csproj", "{D262C9A3-3642-4072-A16F-766D9406FD54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFSubjoinEvent", "..\WPFSubjoinEvent\WPFSubjoinEvent.csproj", "{4EA55C78-5CF6-4DD8-9A92-37FDEBDE0D6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFSubjoinEvent", "..\WPFSubjoinEvent\WPFSubjoinEvent.csproj", "{4EA55C78-5CF6-4DD8-9A92-37FDEBDE0D6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseRoutedCommand", "..\UseRoutedCommand\UseRoutedCommand.csproj", "{5886E0ED-724F-4894-8C04-F52578206A72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseRoutedCommand", "..\UseRoutedCommand\UseRoutedCommand.csproj", "{5886E0ED-724F-4894-8C04-F52578206A72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandPrameter", "..\CommandPrameter\CommandPrameter.csproj", "{1B04ABD2-32FF-477B-8FF0-28DF2B9481A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{5886E0ED-724F-4894-8C04-F52578206A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5886E0ED-724F-4894-8C04-F52578206A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5886E0ED-724F-4894-8C04-F52578206A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B04ABD2-32FF-477B-8FF0-28DF2B9481A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B04ABD2-32FF-477B-8FF0-28DF2B9481A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B04ABD2-32FF-477B-8FF0-28DF2B9481A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B04ABD2-32FF-477B-8FF0-28DF2B9481A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
