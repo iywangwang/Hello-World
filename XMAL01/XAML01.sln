@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFSubjoinEvent", "..\WPFSu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseRoutedCommand", "..\UseRoutedCommand\UseRoutedCommand.csproj", "{5886E0ED-724F-4894-8C04-F52578206A72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandPrameter", "..\CommandPrameter\CommandPrameter.csproj", "{1B04ABD2-32FF-477B-8FF0-28DF2B9481A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandPrameter", "..\CommandPrameter\CommandPrameter.csproj", "{1B04ABD2-32FF-477B-8FF0-28DF2B9481A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM_CommandText", "..\MVVM_CommandText\MVVM_CommandText.csproj", "{6E204361-BFD4-4079-B608-2514FA3666D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVM_CommandText", "..\MVVM_CommandText\MVVM_CommandText.csproj", "{6E204361-BFD4-4079-B608-2514FA3666D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "List_HierarchicalDataTemplate", "..\List_HierarchicalDataTemplate\List_HierarchicalDataTemplate.csproj", "{B27F204B-B69B-4FB2-ABCC-12126A7DC5D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{6E204361-BFD4-4079-B608-2514FA3666D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E204361-BFD4-4079-B608-2514FA3666D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E204361-BFD4-4079-B608-2514FA3666D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B27F204B-B69B-4FB2-ABCC-12126A7DC5D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B27F204B-B69B-4FB2-ABCC-12126A7DC5D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B27F204B-B69B-4FB2-ABCC-12126A7DC5D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B27F204B-B69B-4FB2-ABCC-12126A7DC5D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

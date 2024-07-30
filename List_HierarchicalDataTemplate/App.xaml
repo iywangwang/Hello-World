@@ -1,0 +1,21 @@
+﻿<Application x:Class="List_HierarchicalDataTemplate.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:List_HierarchicalDataTemplate"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <HierarchicalDataTemplate DataType="{x:Type local:CompanyData}"
+                                  ItemsSource="{Binding Path=DepartmentDatas}">
+            <TextBlock Text="{Binding Name}"/>
+        </HierarchicalDataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type local:DepartmentData}"
+                                  ItemsSource="{Binding Path=EmployeeDatas}">
+            <TextBlock Text="{Binding Name}"/>
+        </HierarchicalDataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type local:EmployeeData}">
+            <CheckBox Content="{Binding Name}"/>
+        </HierarchicalDataTemplate>
+    </Application.Resources>
+</Application>
