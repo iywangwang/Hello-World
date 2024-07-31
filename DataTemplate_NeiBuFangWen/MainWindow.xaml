@@ -1,0 +1,25 @@
+﻿<Window x:Class="DataTemplate_NeiBuFangWen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataTemplate_NeiBuFangWen"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400">
+    <Grid Margin="10">
+        <ListView x:Name="listViewEmp"
+                  SelectionChanged="listViewEmp_SelectionChanged"
+                  ItemsSource="{StaticResource Employees}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID"
+                                    DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Width="150"
+                                    Header="Information"
+                                    CellTemplate="{StaticResource EmployeeTemplate}"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+    </Grid>
+</Window>

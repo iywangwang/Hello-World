@@ -1,0 +1,43 @@
+﻿<Application x:Class="DataTemplate_NeiBuFangWen.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="clr-namespace:System.Collections;assembly=System.Collections.NonGeneric"
+             xmlns:local="clr-namespace:DataTemplate_NeiBuFangWen"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <c:ArrayList x:Key="Employees">
+            <local:Person Id="1"
+                          Name="Tom"
+                          Job="WPF"
+                          Birthday="1994.10.22"/>
+            <local:Person Id="2"
+                          Name="Amy"
+                          Job="ASP.NET"
+                          Birthday="1996.12.07" />
+            <local:Person Id="3"
+                          Name="Jack"
+                          Job="Java"
+                          Birthday="1998.03.12" />
+            <local:Person Id="4"
+                          Name="King"
+                          Job="SQL"
+                          Birthday="2002.06.22" />
+            <local:Person Id="5"
+                          Name="John"
+                          Job="XAML"
+                          Birthday="2001.11.27" />
+        </c:ArrayList>
+
+        <DataTemplate x:Key="EmployeeTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="textBlockName" 
+                           Margin="10 0 0 0" Text="{Binding Name}" FontWeight="Bold"/>
+                <TextBox x:Name="textBoxJob"
+                         Margin="10 0 0 0" Text="{Binding Job}"/>
+                <TextBlock x:Name="textBlockBthday"
+                           Margin="10 0 0 0" Text="{Binding Birthday}" 
+                           Width="0" Foreground="Transparent"/>
+            </StackPanel>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
