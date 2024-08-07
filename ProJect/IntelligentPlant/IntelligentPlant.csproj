@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resource\Images\deviceImage\自动化车间设备1.png" />
+    <None Remove="Resource\Images\deviceImage\自动化车间设备13.png" />
+    <None Remove="Resource\Images\deviceImage\自动化车间设备15.png" />
+    <None Remove="Resource\Images\deviceImage\自动化车间设备3.png" />
+    <None Remove="Resource\Images\deviceImage\自动化车间设备7.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Images\deviceImage\自动化车间设备1.png" />
+    <Resource Include="Resource\Images\deviceImage\自动化车间设备13.png" />
+    <Resource Include="Resource\Images\deviceImage\自动化车间设备15.png" />
+    <Resource Include="Resource\Images\deviceImage\自动化车间设备3.png" />
+    <Resource Include="Resource\Images\deviceImage\自动化车间设备7.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="IntelligentPlant.Resource.ContralResource.Meter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IntelligentPlant.Resource.ContralResource"
+             mc:Ignorable="d" 
+             d:DesignHeight="160" d:DesignWidth="160">
+    
+        <Grid>
+            <Canvas x:Name="meterCanva"></Canvas>
+            <Path x:Name="borderPath" StrokeThickness="5" Stroke="#94C1CDCD"/>
+            <Path x:Name="valuePath" StrokeThickness="5" Stroke="#00BFFF"/>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontWeight="Bold" Foreground="#00BFFF" Margin="0 40 0 0"
+                           FontSize="20" HorizontalAlignment="Center"
+                           Text="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                <TextBlock FontWeight="Bold" Foreground="#B0C4DE" HorizontalAlignment="Center"
+                           Text="{Binding Unit, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+            </StackPanel>
+        </Grid>
+    
+</UserControl>

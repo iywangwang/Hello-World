@@ -20,7 +20,7 @@ namespace Array
             System.Array.Copy(array, array2, 5);
             PrintArray(array2);
 
-            Console.WriteLine("第一次使用Git ！");
+            Console.WriteLine("第而次使用Git ！");
         }
 
         static void InitArray(double[] array)
