@@ -1,0 +1,51 @@
+﻿<Window x:Class="Client.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="0" BorderBrush="Black" Margin="5"  HorizontalContentAlignment="Left" 
+                 Text="{Binding Ip, Mode=TwoWay}"/>
+
+        <Border  Margin="5" Grid.Column="1" Grid.Row="0" CornerRadius="10" Background="CadetBlue">
+            <TextBox BorderBrush="Black" HorizontalContentAlignment="Left" Text="{Binding Port, Mode=TwoWay}"/>
+        </Border>
+
+        <Border  Margin="5" Grid.Column="2" Grid.Row="0" CornerRadius="10" Background="CadetBlue">
+            <Button BorderBrush="Black" Content="连接服务器" Command="{Binding ConnectedServer}" />
+        </Border>
+        <Border  Margin="5" Grid.Column="3" Grid.Row="0" CornerRadius="10" Background="CadetBlue">
+            <Button BorderBrush="Black" Content="断开服务器" Command="{Binding DisconnectedServer}"/>
+        </Border>
+
+        <TextBox Grid.Row="1" Grid.ColumnSpan="5" Background="LightSlateGray" 
+                 BorderBrush="Black" Margin="5" Text="{Binding LogText, Mode=TwoWay}"
+                 VerticalScrollBarVisibility="Visible"/>
+        <TextBox Grid.Row="2" Grid.ColumnSpan="5" Background="LightSlateGray"
+                 BorderBrush="Black" Margin="5" Text="{Binding SendText, Mode=TwoWay}"
+                 VerticalScrollBarVisibility="Visible"/>
+
+        <Border  Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="3" CornerRadius="5" Background="White">
+            <DockPanel Dock="Right" >
+                <Button  Content="发送消息" Margin="5" Grid.Column="1" MaxWidth="200" 
+                         MinWidth="150" HorizontalAlignment="Right" Command="{Binding SendMessage}"/>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>

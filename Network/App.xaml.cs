@@ -15,7 +15,7 @@ namespace Network
     {
         public App()
         {
-#if true
+#if false
             //创建客户端
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             
@@ -30,7 +30,7 @@ namespace Network
                 MessageBox.Show($"服务器未连接:\n{e.Message}");
             }
 
-#elif false
+#elif true
 
             //创建服务器
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
