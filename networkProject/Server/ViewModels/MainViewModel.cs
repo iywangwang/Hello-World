@@ -21,14 +21,14 @@ namespace Server.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private string _ip = "197.0.0.1";
+        private string _ip = "127.0.0.1";
         public string Ip
         {
             get { return _ip; }
             set { SetProperty(ref _ip, value); }
         }
 
-        private string _port = "8888";
+        private string _port = "9999";
         public string Port
         {
             get { return _port; }
@@ -77,37 +77,27 @@ namespace Server.ViewModels
             set { SetProperty(ref _selectSocket, value); }
         }
 
-
-
         public DelegateCommand StartListen { get; private set; }          // 开始监听命令
-
 
         public DelegateCommand StopListen { get; private set; }            // 停止监听命令
 
-
         public DelegateCommand SelectCommand { get; private set; }         // 选择文件命令
 
-
         public DelegateCommand SendFileCommand { get; private set; }        // 发送文件命令
-
 
         public DelegateCommand SendMessageCommand { get; private set; }     // 发送消息命令
 
         public Socket socketWatch;                     // 用于监听的Socket
         public Socket socketSend;                      // 用于通信的Socket
 
-
         Thread AcceptSocketThread;                    // 创建监听连接de线程，接收消息的线程
-
         Thread threadReceive;                         // 接收客户端发送消息的线程
 
         public bool AcceptSocketBool;
         public bool ThreadReceiveBool;
 
-
         public MainViewModel()
         {
-
             DicSocket = new SynchronizedCollection<IpSocket>();
 
             StartListen = new DelegateCommand(startListen);
@@ -119,7 +109,6 @@ namespace Server.ViewModels
             SendFileCommand = new DelegateCommand(SendFilesFun);
 
             SendMessageCommand = new DelegateCommand(Server2Client);
-
         }
 
         // 开始监听并接收客户端发送的消息
@@ -135,7 +124,6 @@ namespace Server.ViewModels
                     socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                     //Trim() 是 string 类型的一个方法，用于从字符串的开头和结尾移除空白字符。
-                    //所谓的空白字符包括空格、制表符、换行符等。
                     IPAddress ip = IPAddress.Parse(Ip.Trim());      // step2: 获取IP地址
 
                     IPEndPoint point = new IPEndPoint(ip, Convert.ToInt32(Port.Trim()));    // step3: 获取Port
@@ -146,7 +134,6 @@ namespace Server.ViewModels
 
                     LogReceive += "服务端：监听开启，等待客户端的连接........" + "\r\n";
 
-
                     // 等待客户端的连接，如果连接成功，就将客户端的Socket和对应的IP地址加入到监听集合中，并开启消息接收线程
 
                     //ParameterizedThreadStart
@@ -156,7 +143,7 @@ namespace Server.ViewModels
                     AcceptSocketThread.Start(socketWatch);
                 }
 
-                catch (Exception ex)
+                catch (SocketException ex)
                 {
                     LogReceive += ex.ToString() + "\r\n";
                 }

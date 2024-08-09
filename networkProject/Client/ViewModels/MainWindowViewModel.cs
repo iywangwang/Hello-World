@@ -21,14 +21,14 @@ namespace Client.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private string _ip = "192.168.147.127";
+        private string _ip = "127.0.0.1";
         public string Ip
         {
             get { return _ip; }
             set { SetProperty(ref _ip, value); }
         }
 
-        private string _port = "8970";
+        private string _port = "9999";
         public string Port
         {
             get { return _port; }
@@ -42,7 +42,6 @@ namespace Client.ViewModels
             set { SetProperty(ref _logText, value); }
         }
 
-
         private string _sendText;
         public string SendText
         {
@@ -50,13 +49,11 @@ namespace Client.ViewModels
             set { SetProperty(ref _sendText, value); }
         }
 
-
         public bool CloseClientThread;   // 用于关闭客户端接收消息线程
 
         public Socket ClientSocketSend;  //创建连接的Socket
 
         private Thread CLientThreadReceive;  // 创建客户端接收服务器的线程变量
-
 
         public DelegateCommand ConnectedServer { get; private set; }
         public DelegateCommand DisconnectedServer { get; private set; }
@@ -64,11 +61,9 @@ namespace Client.ViewModels
 
         public MainViewModel()
         {
-
             ConnectedServer = new DelegateCommand(Client2Server);
             DisconnectedServer = new DelegateCommand(CloseClientFun);
             SendMessage = new DelegateCommand(SendMessageFun);
-
         }
 
         ///<summary>客户端连接到服务器</summary>>
@@ -88,7 +83,6 @@ namespace Client.ViewModels
                     CLientThreadReceive = new Thread(new ThreadStart(Receive));
                     CLientThreadReceive.IsBackground = true;
                     CLientThreadReceive.Start();
-
                 }
                 catch (Exception ex)
                 {
@@ -100,10 +94,7 @@ namespace Client.ViewModels
             {
                 LogText += "请输入IP/Port：" + "\r\n";
             }
-
-
         }
-
 
         private void Receive()
         {
@@ -145,7 +136,6 @@ namespace Client.ViewModels
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -164,52 +154,41 @@ namespace Client.ViewModels
                         byte[] buffer = new byte[2048];
                         buffer = Encoding.Default.GetBytes(strMsg);
                         int receive = ClientSocketSend.Send(buffer);
-
                     }
                     catch (Exception ex)
                     {
-
                         LogText += "发送消息失败:" + ex.Message + "\r\n";
-
                     }
                 else
                 {
                     LogText += "请先输入要发送的信息:" + "\r\n";
                 }
-
             }
             else
             {
                 LogText += "请先连接到服务端:" + "\r\n";
             }
-
         }
 
 
         private void SendMessageDisconnect()
         {
-
             try
             {
                 string strMsg = "disconnectNetwork";
                 byte[] buffer = new byte[2048];
                 buffer = Encoding.Default.GetBytes(strMsg);
                 int receive = ClientSocketSend.Send(buffer);
-
             }
             catch (Exception ex)
             {
-
                 LogText += "发送断开连接消息出错:" + ex.Message + "\r\n";
-
             }
-
         }
 
 
         private void CloseClientFun()
         {
-
             // 发送消息告诉服务端，我将断开连接；如果客户端主动断开与服务端的连接，
             // 最好实现让服务端接收消息的线程函数退出循环阻塞状态，不然会引发服务端异常：
 
@@ -220,7 +199,6 @@ namespace Client.ViewModels
 
             if (ClientSocketSend != null)
             {
-
                 //终止线程
                 CloseClientThread = false;
 
