@@ -25,6 +25,12 @@ namespace ACSTest.Models
 
         private bool _IsConnect = false;
 
+        private bool _ForwardMove = true;
+
+        private bool _BackwardMove = false;
+
+        private double _MovePosition = 0;
+
         public Axiss(int name)
         {
             AxisName = name;
@@ -79,7 +85,43 @@ namespace ACSTest.Models
                 if (this.PropertyChanged != null)
                     PropertyChanged.Invoke(this, new PropertyChangedEventArgs("IsConnect"));
             }
-        }        
+        }
+
+        public bool ForwardMove
+        {
+            get => _ForwardMove;
+            set
+            {
+                if (_ForwardMove == value) return;
+                _ForwardMove = value;
+                if (this.PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("ForwardMove"));
+            }
+        }
+
+        public bool BackwardMove
+        {
+            get => _BackwardMove;
+            set
+            {
+                if (_BackwardMove == value) return;
+                _BackwardMove = value;
+                if (this.PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("BackwardMove"));
+            }
+        }
+
+        public double MovePosition
+        {
+            get => _MovePosition;
+            set
+            {
+                if (_MovePosition == value) return;
+                _MovePosition = value;
+                if (this.PropertyChanged != null)
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("MovePosition"));
+            }
+        }
     }
 }
 

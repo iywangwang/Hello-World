@@ -2,6 +2,7 @@
 using ACSTest.Commands;
 using ACSTest.MainViewModel;
 using ACSTest.Models;
+using Microsoft.Win32;
 using System.ComponentModel;
 using System.Text;
 using System.Windows;
@@ -96,6 +97,29 @@ namespace ACSTest
 
                 return ;
             }
-        }        
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.InitialDirectory = @"C:\CSharp_Study\Array\ProJect\ACS\ACSTest";
+            ofd.Title = "选择文件";
+            //ofd.Filter = "ANSI文件|*.ANSI";
+            ofd.ShowDialog();
+
+            this.FilePlaceText.Text = ofd.FileName;            
+        }
+
+        private void DeleteFile_Click(object sender, RoutedEventArgs e)
+        {
+            this.FilePlaceText.Clear();
+        }
+
+        private void IntoControl_Click(object sender, RoutedEventArgs e)
+        {
+            //ModelACS.apiInstance.LoadDataToController((int)GeneralDefinition.ACSC_FILE,
+            //    "MyArrayInFile", Api.ACSC_NONE, Api.ACSC_NONE, Api.ACSC_NONE, Api.ACSC_NONE,
+            //    this.FilePlaceText.Text, (int)GeneralDefinition.ACSC_INT_BINARY, false);
+        }
     }
 }

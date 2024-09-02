@@ -31,6 +31,8 @@ namespace ACSTest.MainViewModel
 
             _ResetCommand = new ResetCommand(ResetAxis);
 
+            _StartStraightMoveCommand = new StartStraightMove(StartStraightMove);
+
             EtherentInstance = Etherent.EtherentInstance;
 
             AxisList = new List<Axiss> { new Axiss(1), new Axiss(2), new Axiss(3) };
@@ -119,6 +121,8 @@ namespace ACSTest.MainViewModel
 
         public ResetCommand _ResetCommand { get; set; }
 
+        public StartStraightMove _StartStraightMoveCommand { get; set; }
+
         private Task Open_IsAxisConnect()
         {
             return Task.Run(() =>
@@ -183,7 +187,6 @@ namespace ACSTest.MainViewModel
 
         private Task StartMoveAxis(string name)
         {
-
             return (Task)Task.Run(() =>
             {
                 if (IsAxisConnect == false) return;
@@ -261,7 +264,12 @@ namespace ACSTest.MainViewModel
                         ModelACS.apiInstance.Kill(AxisList[2]._axis);
                         AxisList[2].IsMoveing = false;
                         break;
-                    default:
+                    default:                        
+                        foreach (var axis in AxisList)
+                        {
+                            ModelACS.apiInstance.Kill(axis._axis);
+                            axis.IsMoveing = false;
+                        }
                         break;
                 }
             });            
@@ -295,6 +303,59 @@ namespace ACSTest.MainViewModel
                         }
                         break;
                 }
+            });            
+        }
+
+        private Task StartStraightMove()
+        {
+            return Task.Run(() =>
+            {
+                if (IsAxisConnect == false) return;
+
+                foreach (var axis in AxisList)
+                {
+                    ModelACS.apiInstance.SetVelocity(axis._axis, axis.Velocity);
+                }
+
+                if (this.RelativeMove == true)
+                {
+                    foreach (var axis in AxisList)
+                    {
+                        if (axis.ForwardMove ==  true)
+                        {
+                            ModelACS.apiInstance.WaitMotorEnabled(AxisList[2]._axis, 1, 5000);
+                            ModelACS.apiInstance.ToPoint(MotionFlags.ACSC_AMF_RELATIVE, axis._axis, axis.MovePosition);
+                        }
+                        else
+                        {
+                            ModelACS.apiInstance.WaitMotorEnabled(AxisList[2]._axis, 1, 5000);
+                            ModelACS.apiInstance.ToPoint(MotionFlags.ACSC_AMF_RELATIVE, axis._axis, -axis.MovePosition);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var axis in AxisList)
+                    {
+                        if (axis.ForwardMove == true)
+                        {
+                            ModelACS.apiInstance.WaitMotorEnabled(AxisList[2]._axis, 1, 5000);
+                            ModelACS.apiInstance.ToPoint(0, axis._axis, axis.MovePosition);
+                        }
+                        else
+                        {
+                            ModelACS.apiInstance.WaitMotorEnabled(AxisList[2]._axis, 1, 5000);
+                            ModelACS.apiInstance.ToPoint(0, axis._axis, -axis.MovePosition);
+                        }
+                    }
+                }
+            });
+        }
+
+        private Task OpenFile()
+        {
+            return (Task)Task.Run(() => {
+                ModelACS.apiInstance.CopyFileToController("C:\\tmp.txt", "tmp.txt");
             });            
         }
     }

@@ -47,7 +47,7 @@
                                        Margin="8 0" FontWeight="Heavy"/>
                             <TextBox Width="150" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center"
                                        Margin="10 0" Padding="5" FontSize="15" DataContext="{Binding EtherentInstance}" Text="{Binding Path=Ip, Mode=TwoWay}"
-                                     Name="IpTextBox" IsEnabled="False"/> 
+                                     Name="IpTextBox" IsEnabled="False"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="1">
@@ -108,7 +108,7 @@
                                     <StackPanel Grid.Row="3" Orientation="Horizontal">
                                         <Border Margin="15 0" Width="10" Height="10" Background="{Binding IsAxisConnect, Converter={StaticResource BorderBrackground}}"/>
                                         <TextBlock Text="坐标 ：" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Heavy"/>
-                                    </StackPanel> 
+                                    </StackPanel>
                                 </Grid>
 
                                 <Grid Grid.Column="1">
@@ -129,10 +129,10 @@
 
                                     <TextBlock Grid.Row="1" Text="{Binding Position}" FontSize="10" Margin="-10 0"
                                                HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                </Grid>                                
-                            </Grid>                            
+                                </Grid>
+                            </Grid>
                         </Grid>
-                    </Border>                    
+                    </Border>
                 </Grid>
 
                 <Grid Grid.Column="1">
@@ -147,10 +147,10 @@
                             <StackPanel>
                                 <TextBlock Text="选择文件" Margin="5 0" FontSize="14" FontWeight="Heavy"/>
                                 <StackPanel Orientation="Horizontal" Margin="10 4">
-                                    <TextBox Width="300" Height="25" Padding="4"/>
-                                    <Button Content="选择文件" Margin="15 1 10 1" Width="70"/>
-                                    <Button Content="配置文件" Margin="6 1" Width="70"/>
-                                    <Button Content="删除" Margin="6 1" Width="45"/>
+                                    <TextBox Width="300" Height="25" Padding="4" Name="FilePlaceText"/>
+                                    <Button Content="选择文件" Margin="15 1 10 1" Width="70" Click="Button_Click"/>
+                                    <Button Content="配置文件" Margin="6 1" Width="70" Name="IntoControl" Click="IntoControl_Click"/>
+                                    <Button Content="删除" Margin="6 1" Width="45" Name="DeleteFile" Click="DeleteFile_Click"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
@@ -170,7 +170,7 @@
                                         <RowDefinition Height="3*"/>
                                     </Grid.RowDefinitions>
 
-                                    
+
                                     <TextBlock Text="选择速度" HorizontalAlignment="Left" VerticalAlignment="Center"
                                                Margin="5 0" FontSize="15" FontWeight="Heavy"/>
                                     <Grid Grid.Row="1">
@@ -199,7 +199,7 @@
                                             <TextBlock Text="R/M" FontSize="15" Margin="10 3" HorizontalAlignment="Left"/>
                                             <TextBlock Text="R/M" FontSize="15" Margin="10 3" HorizontalAlignment="Left"/>
                                         </StackPanel>
-                                    </Grid>                                    
+                                    </Grid>
                                 </Grid>
                             </Border>
 
@@ -226,10 +226,10 @@
                                             <TextBlock Text="z轴位移：" FontSize="15" Margin="17 3"/>
                                         </StackPanel>
 
-                                        <ItemsControl Grid.Column="1" ItemsSource="{Binding AxisList}" Margin="-1">
+                                        <ItemsControl ItemsSource="{Binding AxisList}" Margin="67,-1,25,-1" Grid.ColumnSpan="2">
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
-                                                    <TextBox Text="{Binding Position, Mode=TwoWay}"
+                                                    <TextBox Text="{Binding MovePosition, Mode=OneWayToSource}"
                                                                 FontSize="14" Height="20" Margin="5 4 0 0"/>
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
@@ -248,7 +248,8 @@
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
@@ -334,47 +335,49 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1">
-                            <StackPanel Orientation="Horizontal" Margin="5 20">
-                                <TextBlock Text="x 轴直动" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                           FontSize="15" Margin="5"/>
-                                <RadioButton Content="正" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
-                                <RadioButton Content="反" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="5 10">
-                                <TextBlock Text="y 轴直动" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                           FontSize="15" Margin="5"/>
-                                <RadioButton Content="正" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
-                                <RadioButton Content="反" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="5 20">
-                                <TextBlock Text="z 轴直动" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                           FontSize="15" Margin="5"/>
-                                <RadioButton Content="正" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
-                                <RadioButton Content="反" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
-                            </StackPanel>
+                            <TextBlock Text="x 轴直动" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       FontSize="15" Margin="5 37"/>
+                            <TextBlock Text="y 轴直动" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       FontSize="15" Margin="5 25"/>
+                            <TextBlock Text="z 轴直动" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       FontSize="15" Margin="5 37"/>
                         </StackPanel>
 
-                        <Grid Grid.Column="2">
+                        <ItemsControl Grid.Column="2" ItemsSource="{Binding AxisList}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="5 35">
+                                        <RadioButton Content="正" IsChecked="{Binding ForwardMove}" Margin="-5 0 10 0"/>
+                                        <RadioButton Content="反" IsChecked="{Binding BackwardMove}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <Grid Grid.Column="3">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
-                                <ColumnDefinition/> 
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="5 20">
                                     <Button Content="复位" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"
                                             Command="{Binding _ResetCommand}" CommandParameter="x"/>
-                                    <Button Content="急停" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"/>
-                                </StackPanel>                                                        
-                                <StackPanel Orientation="Horizontal" Margin="5 10">                  
+                                    <Button Content="急停" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"
+                                            Command="{Binding _StopMoveAxisCommand}" CommandParameter="x"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5 10">
                                     <Button Content="复位" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"
                                             Command="{Binding _ResetCommand}" CommandParameter="y"/>
-                                    <Button Content="急停" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"/>
+                                    <Button Content="急停" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"
+                                            Command="{Binding _StopMoveAxisCommand}" CommandParameter="y"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="5 20">
                                     <Button Content="复位" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"
                                             Command="{Binding _ResetCommand}" CommandParameter="z"/>
-                                    <Button Content="急停" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"/>
+                                    <Button Content="急停" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"
+                                            Command="{Binding _StopMoveAxisCommand}" CommandParameter="z"/>
                                 </StackPanel>
                             </StackPanel>
 
@@ -383,13 +386,13 @@
                                     <RadioButton Content="相对运动" Margin="2 20 2 5" IsChecked="{Binding RelativeMove}"
                                                  Name="relativeRad"/>
                                     <RadioButton Content="绝对运动" Margin="2 5" IsChecked="{Binding AbsoluteMoveMode}"/>
-                                    <Button Content="开始运动" Height="30" Margin="2 10"/>
+                                    <Button Content="开始运动" Height="30" Margin="2 10" Command="{Binding _StartStraightMoveCommand}"/>
                                     <Button Content="复位" Height="30" Margin="2 10"
                                             Command="{Binding _ResetCommand}" CommandParameter="all"/>
-                                    <Button Content="急停" Height="60" Margin="2 10"/>
+                                    <Button Content="急停" Height="60" Margin="2 10" Command="{Binding _StopMoveAxisCommand}" CommandParameter="all"/>
                                 </StackPanel>
-                            </Border>                            
-                        </Grid>                        
+                            </Border>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
