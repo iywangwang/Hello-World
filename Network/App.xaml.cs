@@ -15,7 +15,7 @@ namespace Network
     {
         public App()
         {
-#if false
+#if fause
             //创建客户端
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             
@@ -30,7 +30,7 @@ namespace Network
                 MessageBox.Show($"服务器未连接:\n{e.Message}");
             }
 
-#elif true
+#elif fause
 
             //创建服务器
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -51,7 +51,7 @@ namespace Network
                 }
             }
 
-#elif false
+#elif true
 
             //UDP，指定接收
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);

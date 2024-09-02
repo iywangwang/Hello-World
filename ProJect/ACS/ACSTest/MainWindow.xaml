@@ -1,0 +1,398 @@
+﻿<Window x:Class="ACSTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ACSTest"
+        xmlns:btob="clr-namespace:ACSTest.Resource.Converter" 
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <btob:BorderBrackground x:Key="BorderBrackground"/>
+    </Window.Resources>
+    <Grid>
+        <Border Padding="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="以 太 网" Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                                   GroupName="ConnectRadioButton" Name="NtherentRadBtn"
+                                     Checked="RadButton_Checked"/>
+                        <RadioButton Content="模 拟 器" Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                                     GroupName="ConnectRadioButton" Name="SimulatorRadBtn"
+                                     Checked="RadButton_Checked"/>
+                    </StackPanel>
+
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="I   P :" Width="35" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                       Margin="8 0" FontWeight="Heavy"/>
+                            <TextBox Width="150" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                       Margin="10 0" Padding="5" FontSize="15" DataContext="{Binding EtherentInstance}" Text="{Binding Path=Ip, Mode=TwoWay}"
+                                     Name="IpTextBox" IsEnabled="False"/> 
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="1">
+                            <TextBlock Text="Port :" Width="35" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                        Margin="8 0" FontWeight="Heavy"/>
+                            <TextBox Width="150" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                        Margin="10 0" Padding="5" FontSize="15" DataContext="{Binding EtherentInstance}" Text="{Binding Path=Prot, Mode=TwoWay}"
+                                     Name="PortTextBox" IsEnabled="False"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Button Content="连接到控制器" Height="30" Width="100" Name="ConncetBtn"
+                                Click="ConncetBtn_Click" IsEnabled="False"/>
+                    </Grid>
+
+                    <Border BorderThickness="1" BorderBrush="#E1E1E1" Grid.Row="3">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1.5*"/>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="10*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="三维坐标" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                                <Button Content="轴连接" Height="30" Width="80" Margin="15 0" IsEnabled="False"
+                                        Name="AxisConnectBtn" Command="{Binding _ConnectCommand}"/>
+                                <Button Content="断开轴" Height="30" Width="80" Margin="15 0" IsEnabled="False"
+                                        Name="KillAllAxisBtn" Command="{Binding _StopConnectCommand}"/>
+                            </StackPanel>
+
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Margin="15 0" Width="10" Height="10" Background="{Binding IsAxisConnect, Converter={StaticResource BorderBrackground}}"/>
+                                        <TextBlock Text="x 轴坐标 ：" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Heavy"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                        <Border Margin="15 0" Width="10" Height="10" Background="{Binding IsAxisConnect, Converter={StaticResource BorderBrackground}}"/>
+                                        <TextBlock Text="y 轴坐标 ：" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Heavy"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                        <Border Margin="15 0" Width="10" Height="10" Background="{Binding IsAxisConnect, Converter={StaticResource BorderBrackground}}"/>
+                                        <TextBlock Text="z 轴坐标 ：" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Heavy"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                        <Border Margin="15 0" Width="10" Height="10" Background="{Binding IsAxisConnect, Converter={StaticResource BorderBrackground}}"/>
+                                        <TextBlock Text="坐标 ：" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Heavy"/>
+                                    </StackPanel> 
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <ItemsControl Grid.Column="1" ItemsSource="{Binding AxisList}" Margin="1" Height="auto">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Margin="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="auto">
+                                                    <TextBlock Text="{Binding Position}" FontSize="12" Margin="5 0" Height="auto"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+
+                                    <TextBlock Grid.Row="1" Text="{Binding Position}" FontSize="10" Margin="-10 0"
+                                               HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                </Grid>                                
+                            </Grid>                            
+                        </Grid>
+                    </Border>                    
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderThickness="1 1 1 0" BorderBrush="#CDCDCD">
+                        <Grid>
+                            <StackPanel>
+                                <TextBlock Text="选择文件" Margin="5 0" FontSize="14" FontWeight="Heavy"/>
+                                <StackPanel Orientation="Horizontal" Margin="10 4">
+                                    <TextBox Width="300" Height="25" Padding="4"/>
+                                    <Button Content="选择文件" Margin="15 1 10 1" Width="70"/>
+                                    <Button Content="配置文件" Margin="6 1" Width="70"/>
+                                    <Button Content="删除" Margin="6 1" Width="45"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1" BorderThickness="1" BorderBrush="#CDCDCD">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border BorderThickness="0 0 1 0" BorderBrush="#CDCDCD">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="3*"/>
+                                    </Grid.RowDefinitions>
+
+                                    
+                                    <TextBlock Text="选择速度" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                               Margin="5 0" FontSize="15" FontWeight="Heavy"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="1.2*"/>
+                                            <ColumnDefinition Width="0.8*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Text="x轴速度：" FontSize="15" Margin="17 3"/>
+                                            <TextBlock Text="y轴速度：" FontSize="15" Margin="17 3"/>
+                                            <TextBlock Text="z轴速度：" FontSize="15" Margin="17 3"/>
+                                        </StackPanel>
+
+                                        <ItemsControl Grid.Column="1" ItemsSource="{Binding AxisList}" Margin="-1">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Text="{Binding Velocity, Mode=TwoWay}"
+                                                             FontSize="14" Height="20" Margin="5 4 0 0"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <StackPanel Grid.Column="2">
+                                            <TextBlock Text="R/M" FontSize="15" Margin="10 3" HorizontalAlignment="Left"/>
+                                            <TextBlock Text="R/M" FontSize="15" Margin="10 3" HorizontalAlignment="Left"/>
+                                            <TextBlock Text="R/M" FontSize="15" Margin="10 3" HorizontalAlignment="Left"/>
+                                        </StackPanel>
+                                    </Grid>                                    
+                                </Grid>
+                            </Border>
+
+                            <Border Grid.Column="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="3*"/>
+                                    </Grid.RowDefinitions>
+
+
+                                    <TextBlock Text="选择位置" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                        Margin="5 0" FontSize="15" FontWeight="Heavy"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="1.2*"/>
+                                            <ColumnDefinition Width="0.8*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Text="x轴位移：" FontSize="15" Margin="17 3"/>
+                                            <TextBlock Text="y轴位移：" FontSize="15" Margin="17 3"/>
+                                            <TextBlock Text="z轴位移：" FontSize="15" Margin="17 3"/>
+                                        </StackPanel>
+
+                                        <ItemsControl Grid.Column="1" ItemsSource="{Binding AxisList}" Margin="-1">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Text="{Binding Position, Mode=TwoWay}"
+                                                                FontSize="14" Height="20" Margin="5 4 0 0"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <StackPanel Grid.Column="2">
+                                            <TextBlock Text="mm" FontSize="15" Margin="10 3" HorizontalAlignment="Left"/>
+                                            <TextBlock Text="mm" FontSize="15" Margin="10 3" HorizontalAlignment="Left"/>
+                                            <TextBlock Text="mm" FontSize="15" Margin="10 3" HorizontalAlignment="Left"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5 20">
+                                <TextBlock Text="x 轴点动" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                           FontSize="15" Margin="5"/>
+                                <Button Content="正" Width="35" Height="35" FontWeight="Heavy" Margin="8"
+                                        Name="xForwardDotBtn">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding _StartDotMotionCommand}" CommandParameter="x"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="PreviewMouseUp">
+                                            <i:InvokeCommandAction Command="{Binding _StopMoveAxisCommand}" CommandParameter="x"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="反" Width="35" Height="35" FontWeight="Heavy" Margin="8"
+                                        Name="xReverseDotBtn">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding _StartDotMotionCommand}" CommandParameter="-x"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="PreviewMouseUp">
+                                            <i:InvokeCommandAction Command="{Binding _StopMoveAxisCommand}" CommandParameter="-x"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5 10">
+                                <TextBlock Text="y 轴点动" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                           FontSize="15" Margin="5"/>
+                                <Button Content="正" Width="35" Height="35" FontWeight="Heavy" Margin="8"
+                                        Name="yForwardDotBtn">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding _StartDotMotionCommand}" CommandParameter="y"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="PreviewMouseUp">
+                                            <i:InvokeCommandAction Command="{Binding _StopMoveAxisCommand}" CommandParameter="y"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="反" Width="35" Height="35" FontWeight="Heavy" Margin="8"
+                                        Name="yReverseDotBtn">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding _StartDotMotionCommand}" CommandParameter="-y"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="PreviewMouseUp">
+                                            <i:InvokeCommandAction Command="{Binding _StopMoveAxisCommand}" CommandParameter="-y"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5 20">
+                                <TextBlock Text="z 轴点动" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                           FontSize="15" Margin="5"/>
+                                <Button Content="正" Width="35" Height="35" FontWeight="Heavy" Margin="8"
+                                        Name="zForwardDotBtn">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding _StartDotMotionCommand}" CommandParameter="z"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="PreviewMouseUp">
+                                            <i:InvokeCommandAction Command="{Binding _StopMoveAxisCommand}" CommandParameter="z"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="反" Width="35" Height="35" FontWeight="Heavy" Margin="8"
+                                        Name="zReverseDotBtn">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding _StartDotMotionCommand}" CommandParameter="-z"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="PreviewMouseUp">
+                                            <i:InvokeCommandAction Command="{Binding _StopMoveAxisCommand}" CommandParameter="-z"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <StackPanel Orientation="Horizontal" Margin="5 20">
+                                <TextBlock Text="x 轴直动" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                           FontSize="15" Margin="5"/>
+                                <RadioButton Content="正" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
+                                <RadioButton Content="反" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5 10">
+                                <TextBlock Text="y 轴直动" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                           FontSize="15" Margin="5"/>
+                                <RadioButton Content="正" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
+                                <RadioButton Content="反" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5 20">
+                                <TextBlock Text="z 轴直动" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                           FontSize="15" Margin="5"/>
+                                <RadioButton Content="正" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
+                                <RadioButton Content="反" Width="35" Height="35" FontWeight="Heavy" Margin="8"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Grid Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/> 
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5 20">
+                                    <Button Content="复位" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"
+                                            Command="{Binding _ResetCommand}" CommandParameter="x"/>
+                                    <Button Content="急停" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"/>
+                                </StackPanel>                                                        
+                                <StackPanel Orientation="Horizontal" Margin="5 10">                  
+                                    <Button Content="复位" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"
+                                            Command="{Binding _ResetCommand}" CommandParameter="y"/>
+                                    <Button Content="急停" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5 20">
+                                    <Button Content="复位" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"
+                                            Command="{Binding _ResetCommand}" CommandParameter="z"/>
+                                    <Button Content="急停" Width="35" Height="35" FontWeight="Heavy" Margin="2 8"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Border Background="#D7DCDF"  Grid.Column="1">
+                                <StackPanel>
+                                    <RadioButton Content="相对运动" Margin="2 20 2 5" IsChecked="{Binding RelativeMove}"
+                                                 Name="relativeRad"/>
+                                    <RadioButton Content="绝对运动" Margin="2 5" IsChecked="{Binding AbsoluteMoveMode}"/>
+                                    <Button Content="开始运动" Height="30" Margin="2 10"/>
+                                    <Button Content="复位" Height="30" Margin="2 10"
+                                            Command="{Binding _ResetCommand}" CommandParameter="all"/>
+                                    <Button Content="急停" Height="60" Margin="2 10"/>
+                                </StackPanel>
+                            </Border>                            
+                        </Grid>                        
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

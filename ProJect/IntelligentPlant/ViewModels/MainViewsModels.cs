@@ -58,7 +58,7 @@ namespace IntelligentPlant.ViewModels
                         Id = 1,
                         IsWarning = true,
                         Variables = new List<VariableItem>() {
-                            new VariableItem() {
+                          new VariableItem() {
                                 Name = "工作模式",
                                 Value = "Auto"
                             },

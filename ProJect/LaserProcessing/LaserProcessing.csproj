@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Font\DingTalk-JinBuTi.ttf" />
+    <None Remove="Resources\Icom\保存.png" />
+    <None Remove="Resources\Icom\删 除 .png" />
+    <None Remove="Resources\Icom\复制.png" />
+    <None Remove="Resources\Icom\文件.png" />
+    <None Remove="Resources\Icom\文件夹关.png" />
+    <None Remove="Resources\Icom\文件夹开.png" />
+    <None Remove="Resources\Icom\新建.png" />
+    <None Remove="Resources\Icom\粘贴.png" />
+    <None Remove="Resources\Icom\编辑.png" />
+    <None Remove="Resources\Icom\退出.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Image\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Font\DingTalk-JinBuTi.ttf" />
+    <Resource Include="Resources\Icom\保存.png" />
+    <Resource Include="Resources\Icom\删 除 .png" />
+    <Resource Include="Resources\Icom\复制.png" />
+    <Resource Include="Resources\Icom\文件.png" />
+    <Resource Include="Resources\Icom\文件夹关.png" />
+    <Resource Include="Resources\Icom\文件夹开.png" />
+    <Resource Include="Resources\Icom\新建.png" />
+    <Resource Include="Resources\Icom\粘贴.png" />
+    <Resource Include="Resources\Icom\编辑.png" />
+    <Resource Include="Resources\Icom\退出.png" />
+  </ItemGroup>
+
+</Project>
